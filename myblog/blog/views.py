@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView, DetailView, DeleteView
+from .models import Article
 
-class Index(View):
-    def get(self, request):
-        return render(request, 'blog/index.html')
+class Index(ListView):
+	model = Article
+	queryset = Article.objects.all().order_by('-date')
+	template_name = 'blog/index.html'
+	paginate_by = 1
