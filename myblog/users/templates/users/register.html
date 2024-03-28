@@ -1,9 +1,17 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <button class="buttons buttons-secondery" type="submit">Sign Up</button>
-    </form>
+	<div class="row">
+		<div class="col-11 col-md-4 mx-auto mt-5">
+			<h1>Sign Up</h1>
+			<form method="POST">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<div class="form-group">
+					<button class="btn btn-secondary" type="submit">Sign Up</button>
+				</div>
+			</form>
+		</div>
+	</div>
 {% endblock content %}
