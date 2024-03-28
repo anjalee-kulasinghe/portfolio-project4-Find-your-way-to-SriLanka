@@ -2,14 +2,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-	<div class="row">
-		<div class="col-11 col-md-4 mx-auto mt-5">
+	<div class="signup-container">
+		<div class="custom-column-layout custom-column-md-layout custom-margin-auto custom-margin-top">
 			<h1>Sign Up</h1>
 			<form method="POST">
 				{% csrf_token %}
 				{{ form|crispy }}
 				<div class="form-group">
-					<button class="btn btn-secondary" type="submit">Sign Up</button>
+					<button class="buttons buttons-secondary" type="submit">Sign Up</button>
 				</div>
 			</form>
 		</div>
