@@ -1,0 +1,68 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<!-- Start: Go Back Button -->
+<div class="row">
+    <div class="col-md-4 col-12 mx-md-5 mx-2 mt-md-3 my-3">
+        <a class="btn btn-outline-secondary" href="{% url 'index' %}">Go Back</a>
+    </div>
+</div>
+<!-- End: Go Back Button -->
+
+<!-- Start: Article Details -->
+<div class="row">
+    <div class="col-md-6 col-11 mx-md-auto mb-3 pb-2 mx-3">
+        <h1>{{ object.title }}</h1>
+
+        <!-- Date and Author Info -->
+        <p class="text-muted">{{ object.date }}</p>
+        <p class="text-muted">Posted by {{ object.author.username }}</p>
+
+        <!-- Delete Button (if user is the author) -->
+        {% if request.user.username == object.author.username %}
+            <div class="pb-3">
+                <a href="{% url 'delete_article' object.pk %}">Delete this post</a>
+            </div>
+        {% endif %}
+
+        <!-- Article Content -->
+        <div>
+            {{ object.content|safe }}
+        </div>
+    </div>
+</div>
+<!-- End: Article Details -->
+
+<!-- Start: Like and Unlike Buttons -->
+<div class="row my-3">
+    <div class="col-md-6 col-12 mx-md-auto mx-3">
+        <!-- Likes Count -->
+        {% if object.likes.count == 1 %}
+            <p>{{ object.likes.count }} person likes this post</p>
+        {% else %}
+            <p>{{ object.likes.count }} people like this post</p>
+        {% endif %}
+
+        <!-- Like/Unlike Buttons (depending on user authentication and whether the user has already liked the post) -->
+        {% if request.user.is_authenticated %}
+            {% if liked_by_user %}
+                <!-- Unlike Button -->
+                <form method="POST" action="{% url 'like_article' object.id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-primary"><ion-icon name="heart-dislike-outline"></ion-icon> Unlike this post</button>
+                </form>
+            {% else %}
+                <!-- Like Button -->
+                <form method="POST" action="{% url 'like_article' object.id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-primary"><ion-icon name="heart-outline"></ion-icon> Like this post</button>
+                </form>
+            {% endif %}
+        {% else %}
+            <!-- Disabled Like Button (if user is not authenticated) -->
+            <button class="btn btn-outline-primary" disabled><ion-icon name="heart-outline"></ion-icon> Login to like this post</button>
+        {% endif %}
+    </div>
+</div>
+<!-- End: Like and Unlike Buttons -->
+{% endblock content %}

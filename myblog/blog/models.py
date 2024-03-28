@@ -10,3 +10,4 @@ class Article(models.Model):
 	author = models.ForeignKey(User, on_delete=models.CASCADE)  # Author of the article
 	featured = models.BooleanField(default=False)  # Indicates if the article is featured
 	likes = models.ManyToManyField(User, related_name='likes', blank=True)  # Users who liked the article
+
