@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure--$26q-89$ui2#@7!4#4qdi0c&t0zh_gajzhd^l_gk&ik840+h!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-anjaleekula-portfoliopr-jhu3l6gx0y6.ws-eu110.gitpod.io', '.herokuapp.com']
-
+#ALLOWED_HOSTS = ['8000-anjaleekula-portfoliopr-jhu3l6gx0y6.ws-eu110.gitpod.io', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-anjaleekula-portfoliopr-jhu3l6gx0y6.ws-eu110.gitpod.io']
 
 # Application definition
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'users',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'https://8000-anjaleekula-portfoliopr-jhu3l6gx0y6.ws-eu110.gitpod.io',
 ]
 
 ROOT_URLCONF = 'myblog.urls'
