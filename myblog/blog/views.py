@@ -5,14 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Article
 
-"""
-class Index(ListView):
-    # Display a list of articles on the index page
-    model = Article
-    queryset = Article.objects.all().order_by('-date')
-    template_name = 'blog/index.html'
-    paginate_by = 1
-"""
+
 class Index(View):
     def get(self, request):
         return render(request, 'blog/index.html')
