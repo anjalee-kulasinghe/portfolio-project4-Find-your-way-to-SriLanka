@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'tinymce',
     'cityguide',
     'food',
+    'traveltips',
 ]
 
 MIDDLEWARE = [

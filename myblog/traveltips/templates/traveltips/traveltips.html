@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Start: Banner Image -->
+<div class="row">
+    <div class="col-12">
+        <img src="{% static 'images/city_guide.png' %}" class="img-fluid" alt="Banner Image">
+    </div>
+</div>
+<!-- End: Banner Image -->
+
+<div class="row">
+    <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
+        <h1 class="fw-bolder">Travel Tips</h1>
+        <p class="text-muted">Here are some travel tips for Sri Lanka to help you plan your trip:</p>
+        <ul>
+            <li>Visas: You'll need to get a visa ahead of time for entry into Sri Lanka. You can apply online for an Electronic Travel Authorization (ETA) [Electronic Travel Authorization for Sri Lanka].</li>
+            <li>Currency: The Sri Lankan rupee (LKR) is the official currency. It's best to get Sri Lankan rupees upon arrival, although some places accept US dollars or euros. ATMs are widely available in major cities and tourist areas.</li>
+            <li>Weather: Sri Lanka has a tropical climate with two monsoon seasons. The southwest monsoon brings rain from May to September, while the northeast monsoon brings rain from November to March. The best time to visit Sri Lanka is during the dry seasons, from December to April and July to September.</li>
+            <li>What to pack: Pack light, loose-fitting, and breathable clothing made from natural fibers, as the weather is hot and humid year-round.  Also be sure to pack respectful clothing to visit temples, which means covering your shoulders and knees. Here's a quick list:</li>
+                <ul>
+                    <li>Light t-shirts and shirts</li>
+                    <li>Long, loose-fitting pants or a skirt that covers your knees</li>
+                    <li>A hat</li>
+                    <li>Sunglasses</li>
+                    <li>Sunscreen</li>
+                    <li>Insect repellent</li>
+                    <li>Swimsuit</li>
+                    <li>Sturdy shoes for walking</li>
+                    <li>Sandals or flip-flops</li>
+                </ul>
+            <li>Getting around: Sri Lanka has a good public transportation system, including buses, trains, and taxis. Tuk-tuks, three-wheeled scooters, are a popular and affordable way to get around in cities and towns. You can also hire a driver for the day or your entire trip.</li>
+            <li>Accommodation: Sri Lanka has a wide range of accommodation options, from budget guesthouses to luxury hotels. Homestays are a great way to experience Sri Lankan culture and hospitality.</li>
+            <li>Food and drink: Sri Lankan cuisine is a delicious blend of Sinhalese, Tamil, Dutch, and Portuguese influences. Rice and curry is the national dish, and it is typically served with a variety of curries, vegetables, and sambols (condiments). Be sure to try fresh seafood, fruits, and vegetables. Bottled water is recommended, as you shouldn't drink the tap water.</li>
+            <li>Culture: Sri Lanka is a Theravada Buddhist country, and religion plays an important role in Sri Lankan life. Be respectful of local customs and traditions. When visiting temples, remove your shoes and hat, and dress modestly.</li>
+            <li>Safety: Sri Lanka is a safe country for travelers. However, petty theft can occur, so be careful with your belongings. It's best to avoid walking alone at night, especially in deserted areas.</li>
+            <li>Tipping: Tipping is not expected in Sri Lanka, but it is appreciated. If you receive good service, you can tip a small amount of money.</li>
+        </ul>
+        <p>By following these tips, you can have a safe and enjoyable trip to Sri Lanka.</p>
+    </div>
+</div>
+{% endblock content %}

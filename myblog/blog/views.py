@@ -5,12 +5,17 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Article
 
+"""
 class Index(ListView):
     # Display a list of articles on the index page
     model = Article
     queryset = Article.objects.all().order_by('-date')
     template_name = 'blog/index.html'
     paginate_by = 1
+"""
+class Index(View):
+    def get(self, request):
+        return render(request, 'blog/index.html')
 
 class Featured(ListView):
     # Display a list of featured articles
@@ -54,3 +59,10 @@ class DeleteArticleView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         # Ensure that only the author of the article can delete it
         article = Article.objects.get(id=self.kwargs.get('pk'))
         return self.request.user.id == article.author.id
+
+class BlogView(ListView):
+    # Display a list of articles on the blog page
+    model = Article
+    queryset = Article.objects.all().order_by('-date')
+    template_name = 'blog/blog.html'
+    paginate_by = 1

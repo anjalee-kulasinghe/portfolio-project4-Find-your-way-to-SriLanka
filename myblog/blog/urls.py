@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import Index, DetailArticleView, LikeArticle, Featured, DeleteArticleView
+from .views import Index, BlogView, DetailArticleView, LikeArticle, Featured, DeleteArticleView
 
 
 urlpatterns = [
@@ -11,4 +11,6 @@ urlpatterns = [
     path('<int:pk>/delete', DeleteArticleView.as_view(), name='delete_article'),
     path('cityguide/', include('cityguide.urls')),
     path('food/', include('food.urls')),
+    path('traveltips/', include('traveltips.urls')),
+    path('blog/', BlogView.as_view(), name='blog'),
 ]
