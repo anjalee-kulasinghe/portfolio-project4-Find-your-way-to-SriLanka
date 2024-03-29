@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Start: Banner Image -->
+<div class="row">
+    <div class="col-12">
+        <img src="{% static 'images/city_guide.png' %}" class="img-fluid" alt="Banner Image">
+    </div>
+</div>
+<!-- End: Banner Image -->
+
+<div class="row">
+    <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
+        <h1 class="fw-bolder">The best cities to travel to in Sri Lanka</h1>
+        <p class="text-muted">Sri Lanka, also known as the "Pearl of the Indian Ocean", is a beautiful island nation located south of India. It's a treasure trove of cultural heritage, stunning natural landscapes, and friendly people. Here are some of the must-visit cities for your Sri Lankan adventure:</p>
+        <ul>
+            <li>Colombo: Sri Lanka's bustling capital city offers a unique blend of history, culture, and modern life. Explore the colonial-era Fort district, visit the Gangaramaya Temple, or relax on the Galle Face Green promenade overlooking the Indian Ocean.</li>
+            <li>Kandy: This beautiful hilltop city was the last kingdom of Sri Lanka's ancient kings. Visit the Temple of the Tooth Relic, a UNESCO World Heritage Site that houses Sri Lanka's most sacred Buddhist relic, the tooth of the Buddha. Kandy is also a great base for exploring the surrounding tea plantations and mountains.</li>
+            <li>Galle: This charming coastal town is a UNESCO World Heritage Site. Explore the Galle Fort, a 17th-century Dutch fortress, and wander the narrow streets lined with colonial-era buildings. Galle is also a great place to relax on the beach and enjoy some fresh seafood.</li>
+            <li>Sigiriya: This ancient rock fortress, also known as the "Lion Rock", is a UNESCO World Heritage Site. Climb the 1,200 steps to the top of the rock to see the ruins of the palace and enjoy breathtaking views of the surrounding countryside.</li>
+            <li>Anuradhapura: This ancient city was once the capital of Sri Lanka's Sinhalese kings. Explore the ruins of the palaces, temples, and stupas, including the famous Ruwanwelisaya and Jetavanarama stupas. Anuradhapura is a fascinating glimpse into Sri Lanka's rich history.</li>
+            <li>Nuwara Eliya: Nicknamed "Little England", this hill station is a cool retreat from the Sri Lankan heat. Enjoy the beautiful scenery, visit a tea plantation, or go for a hike in the Horton Plains National Park.</li>
+        </ul>
+        <p>These are just a few of the many amazing cities to visit in Sri Lanka. With its beautiful beaches, lush mountains, ancient ruins, and friendly people, Sri Lanka is a perfect destination for a truly unforgettable vacation.</p>
+    </div>
+</div>
+{% endblock content %}

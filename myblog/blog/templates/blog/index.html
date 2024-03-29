@@ -1,6 +1,15 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block content %}
+<!-- Start: Banner Image -->
+<div class="row">
+    <div class="col-12">
+        <img src="{% static '../images/main_banner.png' %}" class="img-fluid" alt="Banner Image">
+    </div>
+</div>
+<!-- End: Banner Image -->
+
 <div class="row">
     <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
         <h1 class="fw-bolder">Find your way to Sri Lanka</h1>

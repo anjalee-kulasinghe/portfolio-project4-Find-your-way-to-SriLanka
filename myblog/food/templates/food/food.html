@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Start: Banner Image -->
+<div class="row">
+    <div class="col-12">
+        <img src="{% static 'images/food.png' %}" class="img-fluid" alt="Banner Image">
+    </div>
+</div>
+<!-- End: Banner Image -->
+
+<div class="row">
+    <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
+        <h1 class="fw-bolder">This is about Sri Lankan food</h1>
+        <!--<h5 class="text-muted">This is about Sri Lankan food</h5>-->
+        <p class="text-muted">Sri Lankan cuisine is a vibrant and flavorful blend of indigenous traditions and foreign influences. The island nation's tropical climate and location along the ancient spice route have resulted in a cuisine that is both unique and delicious.</p>
+        <p>Here are some of the essential elements of Sri Lankan food:</p>
+        <ul>
+            <li>Rice: The staple food of Sri Lanka, rice is served with almost every meal. There are many different varieties of rice grown in Sri Lanka, each with its own unique flavor and texture.</li>
+            <li>Coconut: Another ubiquitous ingredient in Sri Lankan cuisine, coconut is used in everything from curries to sambols (condiments). The creamy flesh of the coconut adds richness and depth of flavor to dishes.</li>
+            <li>Spices: Sri Lanka is famous for its spices, which are used liberally in curries and other dishes. Common spices include cinnamon, cardamom, cloves, cumin, coriander, and turmeric. These spices give Sri Lankan food its characteristic warmth and complexity.</li>
+            <li>Seafood: The island nation's abundant coastline means that seafood is a major part of the Sri Lankan diet. Fish and shellfish are cooked in a variety of ways, including curried, grilled, and fried.</li>
+            <li>Vegetables: Sri Lankan cuisine features a wide variety of fresh vegetables, including lentils, beans, carrots, green beans, eggplant, and okra. Vegetables are often curried or stir-fried.</li>
+        </ul>
+        <p>One of the most popular Sri Lankan dishes is rice and curry. This dish consists of a plate of steamed rice served with a selection of curries, sambols, and chutneys. The curries can be made with meat, fish, vegetables, or lentils. Sambols are condiments made with grated coconut, chilies, onions, and other ingredients. Chutneys are similar to sambols, but they are usually thicker and more flavorful.</p>
+
+        <p>Rice and curry is typically eaten for lunch, but it can also be served for dinner. It is a communal dish, and it is often shared among family and friends.</p>
+
+        <p>If you are looking for a delicious and exotic culinary adventure, then Sri Lankan food is definitely worth trying.</p>
+    </div>
+</div>
+{% endblock content %}
