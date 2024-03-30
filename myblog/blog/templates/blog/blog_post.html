@@ -65,4 +65,33 @@
     </div>
 </div>
 <!-- End: Like and Unlike Buttons -->
+
+<!-- Start: Add Comment Button and Form -->
+<div class="row my-3">
+    <div class="col-md-6 col-12 mx-md-auto mx-3">
+        <!-- Button to toggle comment form -->
+        <button class="btn btn-outline-primary" id="toggle-comment-form">
+            <i class="fa-regular fa-comment-lines"></i> Add a comment
+        </button>
+
+        <!-- Comment Form (hidden by default) -->
+        <div id="comment-form" style="display: none;">
+            <form method="POST" action="{% url 'add_comment' object.id %}">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit" class="btn btn-primary">Post Comment</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End: Add Comment Button and Form -->
 {% endblock content %}
+
+{% block scripts %}
+<!-- JavaScript to toggle comment form visibility -->
+<script>
+    document.getElementById('toggle-comment-form').addEventListener('click', function() {
+        document.getElementById('comment-form').style.display = 'block';
+    });
+</script>
+{% endblock scripts %}

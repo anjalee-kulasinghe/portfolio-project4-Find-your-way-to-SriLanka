@@ -1,14 +1,23 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.views.generic import ListView, DetailView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Article
-
+from .models import Article, Comment
+from .forms import CommentForm
 
 class Index(View):
     def get(self, request):
         return render(request, 'blog/index.html')
+
+
+class BlogView(ListView):
+    # Display a list of articles on the blog page
+    model = Article
+    queryset = Article.objects.all().order_by('-date')
+    template_name = 'blog/blog.html'
+    paginate_by = 1
+
 
 class Featured(ListView):
     # Display a list of featured articles
@@ -16,6 +25,7 @@ class Featured(ListView):
     queryset = Article.objects.filter(featured=True).order_by('-date')
     template_name = 'blog/featured.html'
     paginate_by = 1
+
 
 class DetailArticleView(DetailView):
     # Display details of a single article
@@ -31,6 +41,7 @@ class DetailArticleView(DetailView):
             context['liked_by_user'] = True
         return context
 
+
 class LikeArticle(View):
     # Handle user liking or unliking an article
     def post(self, request, pk):
@@ -41,6 +52,7 @@ class LikeArticle(View):
             article.likes.add(request.user.id)
         article.save()
         return redirect('detail_article', pk)
+
 
 class DeleteArticleView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     # Handle deletion of an article
@@ -53,9 +65,17 @@ class DeleteArticleView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         article = Article.objects.get(id=self.kwargs.get('pk'))
         return self.request.user.id == article.author.id
 
-class BlogView(ListView):
-    # Display a list of articles on the blog page
-    model = Article
-    queryset = Article.objects.all().order_by('-date')
-    template_name = 'blog/blog.html'
-    paginate_by = 1
+
+def add_comment(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.article = article
+            comment.commenter = request.user
+            comment.save()
+            return redirect('detail_article', pk=pk)
+    else:
+        form = CommentForm()
+    return redirect('detail_article', pk=pk)

@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import Index, BlogView, DetailArticleView, LikeArticle, Featured, DeleteArticleView
+from .views import Index, BlogView, DetailArticleView, LikeArticle, Featured, DeleteArticleView, add_comment
 
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('food/', include('food.urls')),
     path('traveltips/', include('traveltips.urls')),
     path('blog/', BlogView.as_view(), name='blog'),
+    path('article/<int:pk>/add_comment/', add_comment, name='add_comment'),
 ]
